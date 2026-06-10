@@ -1,0 +1,105 @@
+export default class Cl_mAspirante {
+    _nombre = "";
+    _cedula = 0;
+    _cargo = "Desarrollador Senior";
+    _expLaboral = 0;
+    _pregunta1 = 0;
+    _pregunta2 = 0;
+    _pregunta3 = 0;
+    _fecha = "";
+    constructor({ cedula, nombre, cargo, expLaboral, pregunta1, pregunta2, pregunta3, fecha }) {
+        this.cedula = cedula;
+        this.nombre = nombre;
+        this.cargo = cargo;
+        this.expLaboral = expLaboral;
+        this.pregunta1 = pregunta1;
+        this.pregunta2 = pregunta2;
+        this.pregunta3 = pregunta3;
+        this.fecha = fecha;
+    }
+    get cedula() {
+        return this._cedula;
+    }
+    set cedula(value) {
+        this._cedula = value;
+    }
+    get nombre() {
+        return this._nombre;
+    }
+    set nombre(value) {
+        this._nombre = value;
+    }
+    get cargo() {
+        return this._cargo;
+    }
+    set cargo(value) {
+        if (value === "Desarrollador Senior" || value === "Gerente de Proyectos") {
+            this._cargo = value;
+        }
+        else {
+            throw new Error("Cargo debe ser 'Desarrollador Senior' o 'Gerente de Proyectos'");
+        }
+    }
+    get pregunta1() {
+        return this._pregunta1;
+    }
+    set pregunta1(value) {
+        this._pregunta1 = value;
+    }
+    get pregunta2() {
+        return this._pregunta2;
+    }
+    set pregunta2(value) {
+        this._pregunta2 = value;
+    }
+    get pregunta3() {
+        return this._pregunta3;
+    }
+    set pregunta3(value) {
+        this._pregunta3 = value;
+    }
+    get expLaboral() {
+        return this._expLaboral;
+    }
+    set expLaboral(value) {
+        this._expLaboral = value;
+    }
+    get fecha() {
+        return this._fecha;
+    }
+    set fecha(value) {
+        this._fecha = value;
+    }
+    puntajeTotal() {
+        return this.pregunta1 + this.pregunta2 + this.pregunta3;
+    }
+    porcentajeTotal(maxPuntos = 30) {
+        const porcentaje = (this.puntajeTotal() / maxPuntos) * 100;
+        return Number(porcentaje.toFixed(2));
+    }
+    Seleccionado() {
+        // Supongamos que:
+        // El Desarrollador Senior necesita mínimo 20 puntos.
+        // El Gerente de Proyectos necesita mínimo 25 puntos.
+        if (this._cargo === "Desarrollador Senior" && this.expLaboral >= 5 && this.puntajeTotal() >= 20) {
+            return true;
+        }
+        else if (this._cargo === "Gerente de Proyectos" && this.expLaboral >= 3 && this.puntajeTotal() >= 25) {
+            return true;
+        }
+        return false;
+    }
+    toJSON() {
+        return {
+            cedula: this.cedula,
+            nombre: this.nombre,
+            cargo: this.cargo,
+            expLaboral: this.expLaboral,
+            pregunta1: this.pregunta1,
+            pregunta2: this.pregunta2,
+            pregunta3: this.pregunta3,
+            fecha: this.fecha,
+        };
+    }
+}
+//# sourceMappingURL=Cl_mAspirante.js.map

@@ -1,0 +1,112 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aspirante al concurso</title>
+</head>
+
+<body>
+
+  <section id="aspirante" style="margin-top: 20px; border: 1px solid #ccc; padding: 15px; width: 500px;">
+    <h5 id="">Procesar aspirante</h5>    
+
+  <div>
+    <label>Nombre:
+        <input type="text" id="aspirante_inNombre" placeholder="Nombre del aspirante">
+    </label>
+  </div>
+
+    <br>
+
+    <div>
+      <label>Cédula:
+        <input type="number" id="aspirante_inCedula" placeholder="Cédula del aspirante">
+      </label>
+    </div>
+
+    <br>
+
+    <div>
+      <label>Años de experiencia laboral:
+        <input type="number" id="aspirante_inExpLaboral" placeholder="Años de experiencia">
+      </label>
+    </div>
+
+
+
+      <br>
+
+      <div>
+      <label>Fecha de registro:
+        <input type="date" id="aspirante_inFecha" placeholder="YYYY-MMM-DD">
+      </label>
+    </div>
+
+    <br>
+    
+    <div>
+      <label>Cargo:
+        <select id="aspirante_inCargo">
+          <option value="" disabled selected hidden>Seleccione una opción...</option>
+          <option value="Desarrollador Senior">Desarrollador Senior</option>
+          <option value="Gerente de Proyectos">Gerente de Proyectos</option>
+        </select>
+      </label>
+    </div>
+
+    <br><br>
+
+<h4>Instrumento de Evaluación (Puntos 0-30)</h4>
+
+
+<fieldset id="aspirante_inPregunta1">
+  <p><strong>1. ¿Cómo priorizas tus tareas ante una entrega urgente?</strong></p>
+  <label><input type="radio" name="p1" value="10"> Hago una lista y resuelvo lo más crítico primero.</label><br>
+  <label><input type="radio" name="p1" value="5"> Trabajo en lo primero que encuentre en mi bandeja.</label><br>
+  <label><input type="radio" name="p1" value="2"> Me enfoco en lo más fácil para avanzar rápido.</label>
+</fieldset>
+
+<br>
+
+<!-- Pregunta 2 -->
+<fieldset id="aspirante_inPregunta2">
+  <p><strong>2. Un cliente está insatisfecho con el resultado, ¿qué haces?</strong></p>
+  <label><input type="radio" name="p2" value="10"> Escucho sus quejas y propongo soluciones inmediatas.</label><br>
+  <label><input type="radio" name="p2" value="5"> Le pido que envíe un correo al área de soporte.</label><br>
+  <label><input type="radio" name="p2" value="0"> Le explico que el contrato no cubre modificaciones.</label>
+</fieldset>
+
+<br>
+
+<!-- Pregunta 3 -->
+<fieldset id="aspirante_inPregunta3">
+  <p><strong>3. Un miembro de tu equipo no está de acuerdo con la arquitectura de software elegida, ¿cómo manejas la situación?</strong></p>
+  <label><input type="radio" name="p3" value="10"> Organizo una reunión para debatir los pros y contras técnicos objetivamente.</label><br>
+  <label><input type="radio" name="p3" value="5"> Le pido que acepte la decisión de la mayoría para evitar retrasos en el proyecto.</label><br>
+  <label><input type="radio" name="p3" value="0"> Ignoro su opinión y continúo con el plan original sin dar explicaciones.</label>
+</fieldset>
+
+
+    <br><br>
+
+
+    <button id="aspirante_btEnviar">Enviar</button>
+  </section>
+
+  <script type="module">
+    import Cl_cAspirante from "./dist/controllers/Cl_cAspirante.js";
+
+    // Importamos SOLO las vistas planas
+    import Cl_vAspirante from "./dist/views/Cl_vAspirante.js";
+
+    // 1. Instanciamos las vistas
+    const vistaAspirante = new Cl_vAspirante();
+
+    // 2. Inyectamos las vistas en los controladores (Â¡La magia ocurre aquÃ­!)
+    new Cl_cAspirante(vistaAspirante);
+  </script>
+</body>
+
+</html>

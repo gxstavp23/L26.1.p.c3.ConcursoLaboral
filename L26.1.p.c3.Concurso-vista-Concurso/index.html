@@ -1,0 +1,73 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Evaluación de Aspirantes</title>
+</head>
+
+<body>
+  <section id="evaluacion" style="margin-top: 20px; border: 1px solid #ccc; padding: 20px; width: 800px;">
+    
+    <h2 id="evaluacion_lblEvaluacion">Resultados del Concurso</h2>
+    
+    <ol>
+      <li><strong>Desarrollador Senior:</strong> Mínimo 20 puntos y al menos 5 años de experiencia.</li>
+      <br>
+      <li><strong>Gerente de Proyectos:</strong> Mínimo 25 puntos y al menos 3 años de experiencia.</li>
+    </ol>
+    
+    <div>
+      <table style="text-align: center; width: 100%;" border="1">
+        <thead>
+          <tr>
+            <th>Cédula</th>
+            <th>Nombre</th>
+            <th>Cargo</th>
+            <th>Experiencia Laboral</th>
+            <th>Primera pregunta</th>
+            <th>Segunda pregunta</th>
+            <th>Tercera pregunta</th>
+            <th>Fecha de registro</th>
+            <th>Total Pts</th>
+            <th>% Calificación</th>
+            <th>Resultado</th>
+          </tr>
+        </thead>
+        <tbody id="evaluacion_tblRegistros"></tbody>
+      </table>
+    </div>
+
+    <div>
+      <span id="evaluacion_lblCantFecha"></span>
+    </div>
+    
+    <br>
+    
+    <button id="evaluacion_btRecargar">Recargar</button>
+    <label>
+      <input id="evaluacion_chkSoloSeleccionados" type="checkbox">Solo seleccionados
+    </label>
+    
+  </section>
+
+  <script type="module">
+    import Cl_cConcurso from "./dist/controllers/Cl_cEvaluacion.js";
+
+    import Cl_mConcurso from "./dist/models/Cl_mConcurso.js";
+    import Cl_mAspirante from "./dist/models/Cl_mAspirante.js";
+    import Cl_vConcurso from "./dist/views/Cl_vConcurso.js";
+
+    // 1. Instanciamos el modelo y la vista
+    const modelo = new Cl_mConcurso();
+    const vista = new Cl_vConcurso();
+
+    // 2. Inyectamos las vistas en los controladores (¡La magia ocurre aquí!)
+    new Cl_cConcurso({modelo, vista});
+  </script>
+</body>
+
+</html>
+
+
